@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.java.text.NumberFormat;
-
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         totalTextView.setText(currencyFormat.format(total));
     }
 
-    private final OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener()
+    private final OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener()
     {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
