@@ -77,18 +77,32 @@ public class MainActivity extends AppCompatActivity
     private final TextWatcher amountEditTextWatcher = new TextWatcher()
     {
         @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        public void beforeTextChanged(CharSequence sequence, int start, int count, int after)
+        {
 
         }
 
         @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        public void onTextChanged(CharSequence sequence, int start, int before, int count)
+        {
+            try
+            {
+                billAmount = Double.parseDouble(sequence.toString())/100.0;
+                amountTextView.setText(currencyFormat.format(billAmount));
 
+            }
+            catch (NumberFormatException e)
+            {
+                amountTextView.setText("");
+                billAmount = 0.0;
+            }
+            calculate();
         }
 
         @Override
-        public void afterTextChanged(Editable editable) {
+        public void afterTextChanged(Editable editable)
+        {
 
         }
-    }
+    };
 }
